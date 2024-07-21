@@ -24,6 +24,14 @@ msg["Subject"] = "Automated Email Test"
 text_message = "Hello this is a test"
 msg.attach(MIMEText(text_message, "plain"))
 
+#Attach file(s) to email
+file = r"C:/Users/Reports/Weekly-report.pdf" #Change this path to the correct path where you have have the file you want to attach
+
+with open(file, "rb") as f:
+    attachment = MIMEApplication(f.read(), name = os.path.basename(file))
+    attachment.add_header("Content-Disposition", "Attachment", filename = os.path.basename(file))
+    msg.attach(attachment)
+
 #Connect to the server, login and send email
 try:
     server = smtplib.SMTP(gmail_server, gmail_port)
