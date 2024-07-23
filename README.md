@@ -4,7 +4,7 @@
 Email automation is a powerful tool that allows you to send emails to the right people at the scheduled time, without having to do the work over and over again. 
 Thus, email automation takes repetitive tasks off your to-do list and leaves you time to do other valuable tasks.
 
-This super useful and convenient program written in Python allows you to send weekly emails to different recipients obtained from a csv file with a file attachment. 
+This super useful and convenient program written in Python allows you to send weekly emails using a Gmail account to different recipients obtained from a csv file with a file attachment. 
 
 The program starts asking the user to introduce the email and password from their Gmail account. 
 Next, it will retrieve the recipients from the csv file named "weekly_report_contacts.csv" and send an email to each of them at a scheduled time every Monday. 
@@ -15,6 +15,8 @@ The code consists of two files: Weekly-email-automation.py and weekly-report-con
 ## Dependencies:
 
 Python 3
+
+A Gmail account
 
 Libraries used: smtplib, from email.mime.multipart: MIMEMultipart, from email.mime.text: MIMEText, from email.mime.application: MIMEApplication, datetime, time, os, csv, schedule
 
