@@ -4,9 +4,10 @@ import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.application import MIMEApplication
-import datetime
+import datetime, time
 import os
 import csv
+import schedule
 
 #Sender email credentials
 my_email = input("Enter your email: ")
@@ -65,6 +66,13 @@ def send_email():
         print("Failed to send email. Error:", e)
         
         server.quit()
+
+#Schedule script to run weekly
+schedule.every().monday.at("12:00").do(send_email)
+
+while True:
+    schedule.run_pending()
+    time.sleep(1)
 
 if __name__ == '__main__':
     send_email()
